@@ -4,8 +4,8 @@ class Prunr::Rule
   ## initializer with options hash
   def initialize(options) end
 
-  ## whether to keep the object
-  def keep?(object) true end
+  ## returns the modified objects array with kept elements removed
+  def filter(objects) objects end
 
 end
 
