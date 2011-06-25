@@ -6,7 +6,7 @@ class TestFile < Test::Unit::TestCase
 
     should "recognize all files from a pattern" do
       list = File.get_all("#{@fixtures_dir}/*.txt")
-      assert_equal %w{bar.txt foo.txt goo.txt}, list.sort
+      assert_equal %w{bar.txt foo.txt goo.txt}, list.map { |it| File.basename(it) }.sort
     end
 
   end
