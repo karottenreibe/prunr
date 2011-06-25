@@ -10,4 +10,6 @@ class TestFile < Test::Unit::TestCase
     end
 
   end
+
 end
+
