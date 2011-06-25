@@ -1,4 +1,4 @@
-class Prunr::Date
+class Prunr::Timeframe
 
   ## add DSL methods to Fixnum
   def self.extend_fixnum
@@ -17,6 +17,12 @@ class Prunr::Date
 
   def initialize(amount)
     @amount = amount
+  end
+
+  ## whether the given date is within the given timeframe starting today
+  # and going back in time
+  def contains(date)
+    false
   end
 
 end

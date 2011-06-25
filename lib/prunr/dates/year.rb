@@ -1,3 +1,7 @@
-class Prunr::Date::Year < Prunr::Date
+class Prunr::Timeframe::Year < Prunr::Timeframe
+
+  def contains(date)
+  end
+
 end
 
