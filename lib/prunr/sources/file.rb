@@ -9,7 +9,7 @@ class Prunr::Source::File < Prunr::Source
   attr_accessor :file
 
   def initialize(path)
-    @file = File.new(path)
+    @file = ::File.new(path)
   end
 
   ## removes the object
