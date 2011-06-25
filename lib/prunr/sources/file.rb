@@ -1,4 +1,5 @@
-class Prunr::Prunable::File
+## base class for all file-related sources
+class Prunr::Source::File < Prunr::Source
 
   ## retrieves all objects matching the given pattern
   def self.get_all(pattern)
@@ -17,7 +18,11 @@ class Prunr::Prunable::File
   end
 
   def to_s
-    @file.path
+    "#{@file.path} : #{self.date}"
+  end
+
+  ## must return the date of the file
+  def date
   end
 
 end

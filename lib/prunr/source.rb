@@ -1,11 +1,11 @@
-## interface for prunable objects
-class Prunr::Prunable
+## Interface for sources of dates
+class Prunr::Source
 
   ## retrieves all objects matching the given pattern
   def self.get_all(pattern) [] end
 
   ## the date associated with the object
-  attr_accessor :date
+  attr_reader :date
 
   ## removes the object
   def prune
@@ -13,7 +13,7 @@ class Prunr::Prunable
 
 end
 
-Dir["#{File.dirname(__FILE__)}/prunables/*.rb"].each do |file|
+Dir["#{File.dirname(__FILE__)}/sources/*.rb"].each do |file|
   require file
 end
 
