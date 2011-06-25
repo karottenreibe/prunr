@@ -10,7 +10,7 @@ class Prunr::Rule::Keep
 
   ## whether to keep the object
   def keep?(object)
-    true
+    false
   end
 
 end

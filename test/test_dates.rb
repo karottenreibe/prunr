@@ -17,4 +17,3 @@ class TestDates < Test::Unit::TestCase
 
 end
 
-

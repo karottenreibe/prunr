@@ -5,7 +5,7 @@ class Prunr::Source
   def self.get_all(pattern) [] end
 
   ## the date associated with the object
-  attr_reader :date
+  attr_accessor :date
 
   ## removes the object
   def prune
