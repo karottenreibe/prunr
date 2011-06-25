@@ -15,4 +15,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'prunr'
 
 class Test::Unit::TestCase
+  def setup
+    @fixtures_dir = "#{File.dirname(__FILE__)}/fixtures"
+  end
 end
