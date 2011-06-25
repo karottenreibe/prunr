@@ -14,15 +14,13 @@ It works as follows:
 Here is an example of a typical prunr script:
 
 	prune '/tmp/backups/*' do
-		date do |file|
-			file.mtime
-		end
+		by :mtime
 
 		keep :all, :for => 1.week
-		keep :oldest => 2, :every => 1.week, :for => 1.month
-		keep :oldest => 1, :every => 1.week, :for => 1.month
-		keep :oldest => 1, :every => 1.month, :for => 6.months
-		keep :oldest => 1, :every => 1.year, :for => 6.years
+		keep :oldest => 2, :of_every => 1.week,  :for => 1.month
+		keep :oldest => 1, :of_every => 1.week,  :for => 1.month
+		keep :oldest => 1, :of_every => 1.month, :for => 6.months
+		keep :oldest => 1, :of_every => 1.year,  :for => 6.years
 	end
 
 This file will look at all files and folders in `/tmp/backups` and perform a pruning
