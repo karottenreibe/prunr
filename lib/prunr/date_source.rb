@@ -1,5 +1,5 @@
 ## Interface for sources of dates
-class DateSource
+class Prunr::DateSource
 
   ## whether the DateSource can be used with this object type
   def is_applicable_to(object) false end

@@ -1,5 +1,5 @@
 ## interface for prunable objects
-class Prunable
+class Prunr::Prunable
 
   ## retrieves all objects matching the given pattern
   def self.get_all(pattern) [] end

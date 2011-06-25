@@ -1,5 +1,5 @@
 ## interface for prune rules
-class Rule
+class Prunr::Rule
 
   ## initializer with options hash
   def initialize(options) end
