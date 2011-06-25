@@ -1,3 +1,0 @@
-class File < Object
-end
-
