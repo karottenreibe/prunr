@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "prunr"
   gem.homepage = "http://github.com/karottenreibe/prunr"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Pruning utility for file archives}
+  gem.description = %Q{prunr is a simple tool that prunes, deletes, trashes, removes and purges files and folders based on an associated date.}
   gem.email = "k@rottenrei.be"
   gem.authors = ["karottenreibe"]
   # dependencies defined in Gemfile
