@@ -18,10 +18,10 @@ Here is an example of a typical prunr script:
 		by :mtime
 
 		keep :all, :for => 1.week
-		keep :oldest => 2, :of_every => 1.week,  :for => 1.month
-		keep :oldest => 1, :of_every => 1.week,  :for => 1.month
-		keep :oldest => 1, :of_every => 1.month, :for => 6.months
-		keep :oldest => 1, :of_every => 1.year,  :for => 6.years
+		keep :newest => 2, :of_every => 1.week,  :for => 1.month
+		keep :newest => 1, :of_every => 1.week,  :for => 1.month
+		keep :newest => 1, :of_every => 1.month, :for => 6.months
+		keep :newest => 1, :of_every => 1.year,  :for => 6.years
 	end
 
 This file will look at all files and folders in `/tmp/backups` and perform a pruning
