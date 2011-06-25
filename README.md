@@ -5,6 +5,7 @@ It is most useful for maintaining archives of some sort, e.g. backup files or
 archived copies of documents, and pruning unneeded files from those archives.
 
 It works as follows:
+
 1.	it gets a list of objects, e.g. files or folders
 2.	it determines a date for each, e.g. by naming convention or modification date
 3.	it follows a set of rules specified in a Ruby DSL to determine which files are
