@@ -27,7 +27,7 @@ class Prunr::Timeframe
 
 end
 
-Dir["#{File.dirname(__FILE__)}/dates/*.rb"].each do |file|
+Dir["#{File.dirname(__FILE__)}/timeframes/*.rb"].each do |file|
   require file
 end
 
