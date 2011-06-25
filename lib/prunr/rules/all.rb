@@ -8,7 +8,9 @@ class Prunr::Rule::All
 
   ## keep all items within @timeframe
   def filter(objects)
-    objects
+    objects.reject do |o|
+      @timeframe.contains(o.date)
+    end
   end
 
 end
