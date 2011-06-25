@@ -13,7 +13,11 @@ class Prunr::Prunable::File
 
   ## removes the object
   def prune
-    File.delete(@file)
+    File.delete(@file.path)
+  end
+
+  def to_s
+    @file.path
   end
 
 end
