@@ -51,7 +51,7 @@ class TestDates < Test::Unit::TestCase
     should "contain some dates" do
       assert 1.year.contains(DateTime.now)
       assert 1.year.contains(DateTime.now - 3600)
-      assert !1.year.contains(DateTime.now - 3600*24*300)
+      assert !1.year.contains(DateTime.now - 3600*24*400)
     end
   end
 
