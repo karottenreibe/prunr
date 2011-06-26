@@ -5,5 +5,9 @@ class Prunr::Timeframe::Year < Prunr::Timeframe
     return diff <= 60*60*24*366
   end
 
+  def is_between(date1, date2)
+    return date1.year == date2.year
+  end
+
 end
 

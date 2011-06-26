@@ -5,5 +5,11 @@ class Prunr::Timeframe::Week < Prunr::Timeframe
     return diff <= 60*60*24*7
   end
 
+  def is_between(date1, date2)
+    return %w{year cweek}.map(&:to_sym).all? { |sym|
+      date1.send(sym) == date2.send(sym)
+    }
+  end
+
 end
 
