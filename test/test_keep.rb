@@ -7,20 +7,20 @@ class TestKeep < Test::Unit::TestCase
     should "keep :all" do
       rule = Prunr::Rule::All.new(:for => 1.week)
       young = Prunr::Source.new
+      young.date = DateTime.now
       old = Prunr::Source.new
-      young.date = Time.now
-      old.date = Time.now - 60*60*24*8
+      old.date = DateTime.now - 60*60*24*8
       assert_equal [old], rule.filter([young, old])
     end
 
     should "keep :newest" do
       rule = Prunr::Rule::Newest.new(:of_every => 1.week, :for => 1.week)
       young = Prunr::Source.new
+      young.date = DateTime.now - 5
       younger = Prunr::Source.new
+      younger.date = DateTime.now
       old = Prunr::Source.new
-      young.date = Time.now - 5
-      younger.date = Time.now
-      old.date = Time.now - 60*60*24*8
+      old.date = DateTime.now - 60*60*24*8
       assert_equal [old, young], rule.filter([old, young, younger])
     end
 
