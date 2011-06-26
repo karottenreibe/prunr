@@ -29,6 +29,14 @@ class TestDates < Test::Unit::TestCase
       assert 1.day.contains(DateTime.now - 3600)
       assert !1.day.contains(DateTime.now - 3600*24*2)
     end
+
+    should "be between some dates" do
+      day1_12 = DateTime.parse("2010-12-30T12:00")
+      day1_13 = DateTime.parse("2010-12-30T13:00")
+      day2_03 = DateTime.parse("2010-12-31T03:00")
+      assert 1.day.is_between(day1_12, day1_13)
+      assert !1.day.is_between(day1_12, day2_03)
+    end
   end
 
   context "a Week" do
@@ -36,6 +44,14 @@ class TestDates < Test::Unit::TestCase
       assert 1.week.contains(DateTime.now)
       assert 1.week.contains(DateTime.now - 3600)
       assert !1.week.contains(DateTime.now - 3600*24*8)
+    end
+
+    should "be between some dates" do
+      day1_23 = DateTime.parse("2011-06-23")
+      day1_24 = DateTime.parse("2011-06-24")
+      day2_30 = DateTime.parse("2011-06-30")
+      assert 1.week.is_between(day1_23, day1_24)
+      assert !1.week.is_between(day1_23, day2_30)
     end
   end
 
@@ -45,6 +61,14 @@ class TestDates < Test::Unit::TestCase
       assert 1.month.contains(DateTime.now - 3600)
       assert !1.month.contains(DateTime.now - 3600*24*33)
     end
+
+    should "be between some dates" do
+      month1_23 = DateTime.parse("2011-06-23")
+      month1_24 = DateTime.parse("2011-06-24")
+      month2_12 = DateTime.parse("2011-07-12")
+      assert 1.month.is_between(month1_23, month1_24)
+      assert !1.month.is_between(month1_23, month2_12)
+    end
   end
 
   context "a Year" do
@@ -52,6 +76,14 @@ class TestDates < Test::Unit::TestCase
       assert 1.year.contains(DateTime.now)
       assert 1.year.contains(DateTime.now - 3600)
       assert !1.year.contains(DateTime.now - 3600*24*400)
+    end
+
+    should "be between some dates" do
+      year1_06 = DateTime.parse("2011-06-23")
+      year1_07 = DateTime.parse("2011-07-24")
+      year2_05 = DateTime.parse("2012-05-23")
+      assert 1.year.is_between(year1_06, year1_07)
+      assert !1.year.is_between(year1_06, year2_05)
     end
   end
 

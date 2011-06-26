@@ -25,6 +25,11 @@ class Prunr::Timeframe
     false
   end
 
+  ## whether the two dates are within the same timeframe
+  def is_between(date1, date2)
+    false
+  end
+
 end
 
 Dir["#{File.dirname(__FILE__)}/timeframes/*.rb"].each do |file|
