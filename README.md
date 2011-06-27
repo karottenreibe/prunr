@@ -18,6 +18,7 @@ Here is an example of a typical prunr script:
 		by :mtime
 
 		keep :all, :for => 1.week
+		keep :all, :before => "2009-10-12"
 		keep :newest => 2, :of_every => 1.week,  :for => 1.month
 		keep :newest => 1, :of_every => 1.week,  :for => 1.month
 		keep :newest => 1, :of_every => 1.month, :for => 6.months
@@ -28,6 +29,7 @@ This file will look at all files and folders in `/tmp/backups` and perform a pru
 based on their last modification date.
 
 *	it will keep all files for one week
+*   it will keep old files that were created before a fixed date
 *	then it will keep the oldest 2 of each week for a month
 *	then it will keep the oldest of each week for a month
 *	then it will keep the oldest of each month for 6 months

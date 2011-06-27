@@ -4,7 +4,7 @@ class TestKeep < Test::Unit::TestCase
 
   context "a keep rule" do
 
-    should "keep :all" do
+    should "keep :all :for" do
       rule = Prunr::Rule::All.new(:for => 1.week)
       young = Prunr::Source.new
       young.date = DateTime.now
