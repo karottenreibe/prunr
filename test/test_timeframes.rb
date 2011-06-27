@@ -36,6 +36,7 @@ class TestDates < Test::Unit::TestCase
       day2_03 = DateTime.parse("2010-12-31T03:00")
       assert 1.day.is_between(day1_12, day1_13)
       assert !1.day.is_between(day1_12, day2_03)
+      assert 2.days.is_between(day1_12, day2_03)
     end
   end
 
@@ -52,6 +53,7 @@ class TestDates < Test::Unit::TestCase
       day2_30 = DateTime.parse("2011-06-30")
       assert 1.week.is_between(day1_23, day1_24)
       assert !1.week.is_between(day1_23, day2_30)
+      assert 2.weeks.is_between(day1_23, day2_30)
     end
   end
 
@@ -68,6 +70,7 @@ class TestDates < Test::Unit::TestCase
       month2_12 = DateTime.parse("2011-07-12")
       assert 1.month.is_between(month1_23, month1_24)
       assert !1.month.is_between(month1_23, month2_12)
+      assert 2.months.is_between(month1_23, month2_12)
     end
   end
 
@@ -84,6 +87,7 @@ class TestDates < Test::Unit::TestCase
       year2_05 = DateTime.parse("2012-05-23")
       assert 1.year.is_between(year1_06, year1_07)
       assert !1.year.is_between(year1_06, year2_05)
+      assert 2.years.is_between(year1_06, year2_05)
     end
   end
 
