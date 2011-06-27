@@ -2,7 +2,7 @@ class Prunr::Timeframe::Month < Prunr::Timeframe
 
   def contains(date)
     diff = DateTime.now - date
-    return diff <= 60*60*24*31
+    return diff <= 24*31
   end
 
   def is_between(date1, date2)
