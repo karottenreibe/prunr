@@ -16,18 +16,18 @@ class TestDates < Test::Unit::TestCase
     end
 
     should "always contain future dates" do
-      assert 1.day.contains(DateTime.now + 3600)
-      assert 1.week.contains(DateTime.now + 3600)
-      assert 1.month.contains(DateTime.now + 3600)
-      assert 1.year.contains(DateTime.now + 3600)
+      assert 1.day.contains(DateTime.now + 1)
+      assert 1.week.contains(DateTime.now + 1)
+      assert 1.month.contains(DateTime.now + 1)
+      assert 1.year.contains(DateTime.now + 1)
     end
   end
 
   context "a Day" do
     should "contain some dates" do
       assert 1.day.contains(DateTime.now)
-      assert 1.day.contains(DateTime.now - 3600)
-      assert !1.day.contains(DateTime.now - 3600*24*2)
+      assert 1.day.contains(DateTime.now - 1)
+      assert !1.day.contains(DateTime.now - 24*2)
     end
 
     should "be between some dates" do
@@ -43,8 +43,8 @@ class TestDates < Test::Unit::TestCase
   context "a Week" do
     should "contain some dates" do
       assert 1.week.contains(DateTime.now)
-      assert 1.week.contains(DateTime.now - 3600)
-      assert !1.week.contains(DateTime.now - 3600*24*8)
+      assert 1.week.contains(DateTime.now - 1)
+      assert !1.week.contains(DateTime.now - 24*8)
     end
 
     should "be between some dates" do
@@ -67,8 +67,8 @@ class TestDates < Test::Unit::TestCase
   context "a Month" do
     should "contain some dates" do
       assert 1.month.contains(DateTime.now)
-      assert 1.month.contains(DateTime.now - 3600)
-      assert !1.month.contains(DateTime.now - 3600*24*33)
+      assert 1.month.contains(DateTime.now - 1)
+      assert !1.month.contains(DateTime.now - 24*33)
     end
 
     should "be between some dates" do
@@ -84,8 +84,8 @@ class TestDates < Test::Unit::TestCase
   context "a Year" do
     should "contain some dates" do
       assert 1.year.contains(DateTime.now)
-      assert 1.year.contains(DateTime.now - 3600)
-      assert !1.year.contains(DateTime.now - 3600*24*400)
+      assert 1.year.contains(DateTime.now - 1)
+      assert !1.year.contains(DateTime.now - 24*400)
     end
 
     should "be between some dates" do
