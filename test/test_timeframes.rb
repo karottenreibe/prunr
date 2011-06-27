@@ -54,6 +54,13 @@ class TestDates < Test::Unit::TestCase
       assert 1.week.is_between(day1_23, day1_24)
       assert !1.week.is_between(day1_23, day2_30)
       assert 2.weeks.is_between(day1_23, day2_30)
+
+      day1_2010 = DateTime.parse("2010-12-31")
+      day1_2011 = DateTime.parse("2011-01-01")
+      day2_2011 = DateTime.parse("2011-01-04")
+      assert 1.week.is_between(day1_2010, day1_2011)
+      assert !1.week.is_between(day1_2010, day2_2011)
+      assert 2.weeks.is_between(day1_2010, day2_2011)
     end
   end
 
