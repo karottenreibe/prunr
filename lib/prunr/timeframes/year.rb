@@ -6,7 +6,7 @@ class Prunr::Timeframe::Year < Prunr::Timeframe
   end
 
   def is_between(date1, date2)
-    return date1.year == date2.year
+    return (date1.year - date2.year).abs() <= @amount - 1
   end
 
 end

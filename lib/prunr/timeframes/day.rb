@@ -6,9 +6,10 @@ class Prunr::Timeframe::Day < Prunr::Timeframe
   end
 
   def is_between(date1, date2)
-    return %w{year month day}.map(&:to_sym).all? { |sym|
+    return false unless %w{year month}.map(&:to_sym).all? { |sym|
       date1.send(sym) == date2.send(sym)
     }
+    return (date1.day - date2.day).abs() <= @amount - 1
   end
 
 end
