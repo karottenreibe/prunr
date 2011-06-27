@@ -15,7 +15,7 @@ class Prunr::Timeframe::Week < Prunr::Timeframe
       date = date1
       while date.year != date2.year and date.cweek != date2.cweek
         weeks += 1
-        date += 60*60*24*7
+        date += 7
       end
       return weeks <= @amount - 1
     end
