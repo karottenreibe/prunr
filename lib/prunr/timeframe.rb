@@ -9,6 +9,9 @@ class Prunr::Timeframe
         Fixnum.send(:define_method, method_name.to_sym) do
           c.new(self)
         end
+        Fixnum.send(:define_method, "#{method_name}s".to_sym) do
+          c.new(self)
+        end
       end
     end
   end
