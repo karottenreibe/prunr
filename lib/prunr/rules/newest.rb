@@ -3,6 +3,7 @@ class Prunr::Rule::Newest
 
   ## initializer with options hash
   def initialize(options)
+    @amount = options[:newest]
     @selection = options[:of_every]
     @timeframe = options[:for]
   end
