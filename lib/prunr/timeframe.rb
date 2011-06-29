@@ -11,11 +11,13 @@ class Prunr::RelativeTimeframe
   ## fixes the relative timeframe so it ends with the given date and
   # returns the resulting absolute timeframe
   def end_with(date)
+    date = date.to_date
     return Prunr::AbsoluteTimeframe.new(date - @days + 1, date)
   end
 
   ## whether there is at most this timeframe between the given dates
   def contains?(date1, date2)
+    date1, date2 = date1.to_date, date2.to_date
     (date1 - date2).abs < @days
   end
 
@@ -28,7 +30,7 @@ class Prunr::AbsoluteTimeframe
   attr_accessor :start_date, :end_date
 
   def initialize(start_date, end_date)
-    @start_date, @end_date = start_date, end_date
+    @start_date, @end_date = start_date.to_date, end_date.to_date
   end
 
   ## whether the given date falls within this timespan
