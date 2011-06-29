@@ -3,7 +3,8 @@ class Prunr::Rule::All
 
   ## initializer with options hash
   def initialize(options)
-    @timeframe = options[:for].end_with(Prunr::EndTime.get)
+    tf = options[:for]
+    @timeframe = tf.end_with(Prunr::EndTime.delta(tf.days))
   end
 
   ## keep all items within @timeframe

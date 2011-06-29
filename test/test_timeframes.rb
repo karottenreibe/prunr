@@ -2,6 +2,10 @@ require 'helper'
 
 class TestDates < Test::Unit::TestCase
 
+  def setup
+    Prunr::EndTime.reset
+  end
+
   context "a RelativeTimeframe" do
     should "be avilable as a DSL method on Fixnum" do
       assert 1.year.is_a?(Prunr::RelativeTimeframe)
@@ -94,6 +98,11 @@ class TestDates < Test::Unit::TestCase
   context "the EndTime" do
     should "default to today" do
       assert_equal Date.today, Prunr::EndTime.get
+    end
+
+    should "apply a delta" do
+      assert_equal Date.today, Prunr::EndTime.delta(1.week)
+      assert_equal Date.today - 1.week.days, Prunr::EndTime.get
     end
   end
 

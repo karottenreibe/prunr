@@ -52,5 +52,16 @@ class Prunr::EndTime
     @endtime = date.to_date
   end
 
+  def self.delta(timeframe)
+    @endtime ||= Date.today
+    old = @endtime
+    @endtime -= timeframe.days
+    return old
+  end
+
+  def self.reset
+    @endtime = nil
+  end
+
 end
 
