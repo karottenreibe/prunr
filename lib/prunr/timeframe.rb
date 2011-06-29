@@ -1,41 +1,36 @@
-class Prunr::Timeframe
+class Prunr::RelativeTimeframe
 
-  ## add DSL methods to Fixnum
-  def self.extend_fixnum
-    subclasses = []
-    ObjectSpace.each_object(Class) do |c|
-      if c.superclass == self
-        method_name = c.to_s.downcase.split('::').last
-        Fixnum.send(:define_method, method_name.to_sym) do
-          c.new(self)
-        end
-        Fixnum.send(:define_method, "#{method_name}s".to_sym) do
-          c.new(self)
-        end
-      end
-    end
+  attr_accessor :days
+
+  def initialize(days)
+    @days = days
   end
 
-  attr_reader :amount
-
-  def initialize(amount)
-    @amount = amount
+  ## fixes the relative timeframe so it ends with the given date and
+  # returns the resulting absolute timeframe
+  def end_with(date)
+    nil
   end
 
-  ## whether the given date is within the given timeframe starting today
-  # and going back in time
-  def contains(date)
-    false
-  end
-
-  ## whether the two dates are within the same timeframe
-  def is_between(date1, date2)
+  ## whether there is at most this timeframe between the given dates
+  def contains(date1, date2)
     false
   end
 
 end
 
-Dir["#{File.dirname(__FILE__)}/timeframes/*.rb"].each do |file|
-  require file
+class Prunr::AbsoluteTimeframe
+
+  attr_accessor :start_date, :end_date
+
+  def initialize(start_date, end_date)
+    @start_date, @end_date = start_date, end_date
+  end
+
+  ## whether the given date falls within this timespan
+  def contains(date)
+    false
+  end
+
 end
 
