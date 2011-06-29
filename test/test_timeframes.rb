@@ -27,37 +27,37 @@ class TestDates < Test::Unit::TestCase
       day1_12 = Date.parse("2010-12-30")
       day1_13 = Date.parse("2010-12-30")
       day2_03 = Date.parse("2010-12-31")
-      assert 1.day.contains(day1_12, day1_13)
-      assert !1.day.contains(day1_12, day2_03)
-      assert 2.days.contains(day1_12, day2_03)
+      assert 1.day.contains?(day1_12, day1_13)
+      assert !1.day.contains?(day1_12, day2_03)
+      assert 2.days.contains?(day1_12, day2_03)
 
       day1_23 = Date.parse("2011-06-23")
       day1_24 = Date.parse("2011-06-24")
       day2_30 = Date.parse("2011-06-30")
-      assert 1.week.contains(day1_23, day1_24)
-      assert !1.week.contains(day1_23, day2_30)
-      assert 2.weeks.contains(day1_23, day2_30)
+      assert 1.week.contains?(day1_23, day1_24)
+      assert !1.week.contains?(day1_23, day2_30)
+      assert 2.weeks.contains?(day1_23, day2_30)
 
       day1_2010 = Date.parse("2010-12-31")
       day1_2011 = Date.parse("2011-01-01")
       day2_2011 = Date.parse("2011-01-07")
-      assert 1.week.contains(day1_2010, day1_2011)
-      assert !1.week.contains(day1_2010, day2_2011)
-      assert 2.weeks.contains(day1_2010, day2_2011)
+      assert 1.week.contains?(day1_2010, day1_2011)
+      assert !1.week.contains?(day1_2010, day2_2011)
+      assert 2.weeks.contains?(day1_2010, day2_2011)
 
       month1_23 = Date.parse("2011-06-23")
       month1_24 = Date.parse("2011-06-24")
       month2_12 = Date.parse("2011-07-24")
-      assert 1.month.contains(month1_23, month1_24)
-      assert !1.month.contains(month1_23, month2_12)
-      assert 2.months.contains(month1_23, month2_12)
+      assert 1.month.contains?(month1_23, month1_24)
+      assert !1.month.contains?(month1_23, month2_12)
+      assert 2.months.contains?(month1_23, month2_12)
 
       year1_06 = Date.parse("2011-06-23")
       year1_07 = Date.parse("2011-07-24")
       year2_05 = Date.parse("2012-07-23")
-      assert 1.year.contains(year1_06, year1_07)
-      assert !1.year.contains(year1_06, year2_05)
-      assert 2.years.contains(year1_06, year2_05)
+      assert 1.year.contains?(year1_06, year1_07)
+      assert !1.year.contains?(year1_06, year2_05)
+      assert 2.years.contains?(year1_06, year2_05)
     end
 
     should "be convertible to an absolute timeframe" do
@@ -68,6 +68,26 @@ class TestDates < Test::Unit::TestCase
       abs = 1.week.end_with(Date.parse("2011-06-22"))
       assert_equal Date.parse("2011-06-16"), abs.start_date
       assert_equal Date.parse("2011-06-22"), abs.end_date
+    end
+  end
+
+  context "an AbsoluteTimeframe" do
+    should "contain some dates" do
+      start_date = Date.parse("2011-06-14")
+      end_date = Date.parse("2011-06-22")
+      atf = Prunr::AbsoluteTimeframe.new(start_date, end_date)
+      assert atf.contains?(Date.parse("2011-06-14"))
+      assert atf.contains?(Date.parse("2011-06-17"))
+      assert atf.contains?(Date.parse("2011-06-22"))
+      assert !atf.contains?(Date.parse("2011-06-23"))
+      assert !atf.contains?(Date.parse("2011-07-14"))
+      assert !atf.contains?(Date.parse("2011-06-13"))
+    end
+  end
+
+  context "the EndTime" do
+    should "default to today" do
+      assert_equal Date.today, Prunr::EndTime.get
     end
   end
 
