@@ -3,13 +3,13 @@ class Prunr::Rule::All
 
   ## initializer with options hash
   def initialize(options)
-    @timeframe = options[:for]
+    @timeframe = options[:for].end_with(Prunr::EndTime.get)
   end
 
   ## keep all items within @timeframe
   def filter(objects)
     objects.reject do |o|
-      @timeframe.contains(o.date)
+      @timeframe.contains?(o.date)
     end
   end
 
