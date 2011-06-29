@@ -15,6 +15,13 @@ class Prunr::RelativeTimeframe
     return Prunr::AbsoluteTimeframe.new(date - @days + 1, date)
   end
 
+  ## fixes the relative timeframe so it ends with the given current EndTime and
+  # returns the resulting absolute timeframe
+  def align
+    endtime = Prunr::EndTime.delta(self).to_date
+    return Prunr::AbsoluteTimeframe.new(endtime - @days + 1, endtime)
+  end
+
   ## whether there is at most this timeframe between the given dates
   def contains?(date1, date2)
     date1, date2 = date1.to_date, date2.to_date
