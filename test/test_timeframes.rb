@@ -61,9 +61,13 @@ class TestDates < Test::Unit::TestCase
     end
 
     should "be convertible to an absolute timeframe" do
-      abs = 1.day.end_with(Date.parse("2011-06-23"))
-      assert_equals Date.parse("2011-06-22"), abs.start_date
-      assert_equals Date.parse("2011-06-23"), abs.end_date
+      abs = 1.day.end_with(Date.parse("2011-06-22"))
+      assert_equal Date.parse("2011-06-22"), abs.start_date
+      assert_equal Date.parse("2011-06-22"), abs.end_date
+
+      abs = 1.week.end_with(Date.parse("2011-06-22"))
+      assert_equal Date.parse("2011-06-16"), abs.start_date
+      assert_equal Date.parse("2011-06-22"), abs.end_date
     end
   end
 

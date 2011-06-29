@@ -11,7 +11,7 @@ class Prunr::RelativeTimeframe
   ## fixes the relative timeframe so it ends with the given date and
   # returns the resulting absolute timeframe
   def end_with(date)
-    nil
+    return Prunr::AbsoluteTimeframe.new(date - @days + 1, date)
   end
 
   ## whether there is at most this timeframe between the given dates
