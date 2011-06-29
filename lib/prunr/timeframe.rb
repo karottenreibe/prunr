@@ -42,10 +42,11 @@ end
 class Prunr::EndTime
 
   def self.get
-    nil
+    @endtime || Date.today
   end
 
   def self.set(date)
+    @endtime = date.to_date
   end
 
 end
