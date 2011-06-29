@@ -16,7 +16,7 @@ class Prunr::RelativeTimeframe
 
   ## whether there is at most this timeframe between the given dates
   def contains(date1, date2)
-    (date1.to_date - date2.to_date).abs < @days
+    (date1 - date2).abs < @days
   end
 
 end
@@ -42,7 +42,7 @@ end
 class Prunr::EndTime
 
   def self.get
-    DateTime.now
+    Date.now
   end
 
   def self.set(date)
