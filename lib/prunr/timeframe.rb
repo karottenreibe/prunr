@@ -1,3 +1,5 @@
+## captures a relative timeframe like "10 days"
+# calculates everything in days
 class Prunr::RelativeTimeframe
 
   attr_accessor :days
@@ -19,6 +21,8 @@ class Prunr::RelativeTimeframe
 
 end
 
+## captures an absolute timeframe like "from 2011-06-05 to 2011-06-10"
+# calculates everything in days
 class Prunr::AbsoluteTimeframe
 
   attr_accessor :start_date, :end_date
@@ -30,6 +34,18 @@ class Prunr::AbsoluteTimeframe
   ## whether the given date falls within this timespan
   def contains(date)
     false
+  end
+
+end
+
+## Singleton that saves, which dates have already been captured
+class Prunr::EndTime
+
+  def self.get
+    DateTime.now
+  end
+
+  def self.set(date)
   end
 
 end
