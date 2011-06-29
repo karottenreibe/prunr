@@ -69,6 +69,12 @@ class TestDates < Test::Unit::TestCase
       assert_equal Date.parse("2011-06-16"), abs.start_date
       assert_equal Date.parse("2011-06-22"), abs.end_date
     end
+
+    should "convert DateTime to Date" do
+      abs = 1.day.end_with(DateTime.parse("2011-06-22T12:00"))
+      assert_equal Date, abs.start_date.class
+      assert_equal Date, abs.end_date.class
+    end
   end
 
   context "an AbsoluteTimeframe" do
