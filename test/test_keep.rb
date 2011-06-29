@@ -3,11 +3,10 @@ require 'helper'
 class TestKeep < Test::Unit::TestCase
 
   def setup
-    Prunr::EndTime.set(Date.today)
+    Prunr::EndTime.reset
   end
 
   context "a keep rule" do
-
     should "keep :all" do
       rule = Prunr::Rule::All.new(:all => nil, :for => 1.week)
       young = Prunr::Source.new
@@ -34,7 +33,6 @@ class TestKeep < Test::Unit::TestCase
       Prunr::Rule::Newest.new(:newest => 1, :of_every => 1.week, :for => 1.week)
       assert_equal Date.today - 2.weeks.days, Prunr::EndTime.get
     end
-
   end
 
 end
