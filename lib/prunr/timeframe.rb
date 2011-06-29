@@ -35,7 +35,8 @@ class Prunr::AbsoluteTimeframe
 
   ## whether the given date falls within this timespan
   def contains?(date)
-    false
+    date = date.to_date
+    return (date <= @end_date and date >= @start_date)
   end
 
 end
