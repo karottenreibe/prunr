@@ -14,7 +14,7 @@ class TestKeep < Test::Unit::TestCase
     end
 
     should "keep :newest" do
-      rule = Prunr::Rule::Newest.new(:newest => 1, :of_every => 1.week, :for => 1.week)
+      rule = Prunr::Rule::Newest.new(:newest => 1, :of_every => :week, :for => 1.week)
       young = Prunr::Source.new
       young.date = DateTime.now - 5
       younger = Prunr::Source.new
