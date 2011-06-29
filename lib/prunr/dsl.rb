@@ -16,10 +16,10 @@ class Fixnum
     return Prunr::RelativeTimeframe.new(self*365)
   end
 
-  alias :days, :day
-  alias :weeks, :week
-  alias :months, :month
-  alias :years, :year
+  alias :days :day
+  alias :weeks :week
+  alias :months :month
+  alias :years :year
 
 end
 
