@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestDates < Test::Unit::TestCase
+class TestTimeframes < Test::Unit::TestCase
 
   def setup
     Prunr::EndTime.reset
