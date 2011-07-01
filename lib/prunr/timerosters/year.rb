@@ -4,7 +4,7 @@ class Prunr::TimeRoster::Year < Prunr::TimeRoster
 
   def initialize(timeframe)
     super(timeframe, nil)
-    @years = timeframe.days / 365 #todo test this
+    @years = timeframe.days / 1.year.days #todo test this
   end
 
   def adjust_timeframe(timeframe)

@@ -4,7 +4,8 @@ class Prunr::TimeRoster
   attr_accessor :timeframe, :parent
 
   def initialize(timeframe, parent = nil)
-    @timeframe, @parent = timeframe, parent
+    @timeframe = timeframe
+    @parent = parent.new(timeframe) if parent
   end
 
   ## adjusts the given timespan so it's start_date is aligned

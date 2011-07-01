@@ -2,8 +2,7 @@
 class Prunr::TimeRoster::Month < Prunr::TimeRoster
 
   def initialize(timeframe)
-    years = (timeframe.days / 1.year.days) + 1
-    super(timeframe, Prunr::TimeRoster::Year.new(years))
+    super(timeframe, Prunr::TimeRoster::Year)
   end
 
   def adjust_timeframe(timeframe)
